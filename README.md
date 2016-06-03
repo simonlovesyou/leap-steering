@@ -13,7 +13,13 @@ npm i
 # Build project
 npm run build
 # Start
-npm start
+npm start Achtung 
+# ...or
+npm start Angle
+# ...or
+npm start Joystick
 ```
+
+
 
 

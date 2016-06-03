@@ -28,8 +28,6 @@ export default class AchtungSteering extends AbstractSteering {
 
           let waitTime = Math.floor((Math.abs((1-Math.pow(direction, 2))*200)));
 
-          console.log("waitTime: " + waitTime)
-
           let wait = waitTime < 45 ? 0 : waitTime
 
           setTimeout(() => {

@@ -113,29 +113,11 @@ export default class AbstractSteering {
     this.block = value;
   }
 
-  keyPress(key, block, cb) {
-
-    //If block parameter is omitted.
-    if(typeof block === 'function' && cb === undefined) {
-      cb = block;
-      block = undefined;
-    }
-
-    //console.log("Blocking: " + block);
-
-    //console.log(block);
-
-    let keyToggle = block === false || block === undefined ? this.keyToggle : () => {};
-
-    //let keyToggle = this.keyToggle;
-
-    //console.log(keyToggle);
+  keyPress(key, cb) {
 
     keyToggle(key, 'down');
-    //console.log("Pressing down %s", key);
 
     setTimeout(() => {
-          //console.log("Realising %s", key);
           keyToggle(key, 'up');
           cb();
       }, this.keypressDuration);

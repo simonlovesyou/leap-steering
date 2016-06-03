@@ -28,13 +28,11 @@ export default class JoystickSteering extends AbstractSteering {
 
         super.keyPress(key, () => {
 
-          let waitTime = abs(min(100 - abs(zero - direction), 150)); 
-
-          console.log("waitTime: " + waitTime);
+          let wait = abs(min(100 - abs(zero - direction), 150)); 
 
           setTimeout(() => {
             this.pass = true;
-          }, waitTime);
+          }, wait);
         });
       }
     });

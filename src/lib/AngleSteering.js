@@ -36,15 +36,7 @@ export default class AngleSteering extends AbstractSteering {
 
         super.keyPress(key, this.block, () => {
 
-          //console.log(roll);
-
-          let waitTime = Math.floor((Math.abs((1-Math.pow(roll, 2))*200)));
-
-          console.log("waitTime: " + waitTime)
-
-          //this.block = waitTime > 190;
-
-          let wait = /*this.block || waitTime < 10 ? 0 :*/ waitTime
+          let wait = Math.floor((Math.abs((1-Math.pow(roll, 2))*200)));
 
           setTimeout(() => {
             this.pass = true;
@@ -55,34 +47,3 @@ export default class AngleSteering extends AbstractSteering {
     });
   }
 }
-
-/*turn(rawFrame) {
-
-    super.calibrateHand(rawFrame, (frame, zeroes) => {
-
-      let zero = zeroes.handDirection[0];
-
-      let direction = frame.hands[0].direction[0] || undefined;
-
-      let key = direction < this.zero ? super.left() : super.right();
-
-      if(this.pass) {
-
-        this.pass = false;
-        super.keyPress(key, () => {
-
-          let waitTime = Math.floor((Math.abs((1-Math.pow(direction, 2))*200)));
-
-          console.log("waitTime: " + waitTime)
-
-          let wait = waitTime < 45 ? 0 : waitTime
-
-          setTimeout(() => {
-            this.pass = true;
-          }, wait);
-          
-        });
-      }
-    });
-  }
-*/
